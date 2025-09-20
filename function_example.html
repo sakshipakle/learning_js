@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-center">Arithmetic Operation Using Function</h3>
+        <form name="myform" style="border: 2px double #000; padding: 30px; border-radius: 10px;">
+          
+          <!-- Number 1 -->
+          <div class="mb-3">
+            <label for="n1" class="form-label">Number 1:</label>
+            <input type="number" name="n1" class="form-control">
+          </div>
+
+          <!-- Number 2 -->
+          <div class="mb-3">
+            <label for="n2" class="form-label">Number 2:</label>
+            <input type="number" name="n2" class="form-control">
+          </div>
+
+          <!-- Buttons -->
+          <div class="text-center">
+            <button class="btn btn-danger me-2" type="button" onclick="add()">+</button>
+            <button class="btn btn-danger me-2" type="button" onclick="sub()">-</button>
+            <button class="btn btn-danger me-2" type="button" onclick="multi()">*</button>
+            <button class="btn btn-danger me-2" type="button" onclick="div()">/</button>
+            <button class="btn btn-danger me-2" type="button" onclick="mod()">%</button>
+            <button class="btn btn-secondary me-2" type="reset">Reset</button>
+          </div>
+
+          <!-- Result -->
+          <div class="mb-3 mt-3">
+            <label for="res" class="form-label">Result:</label>
+            <input type="text" name="res" class="form-control" disabled>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<script>
+    var a, b, result;
+
+    function add() {
+        a = Number(document.myform.n1.value);   // num1
+        b = Number(document.myform.n2.value);   // num2
+        result = a + b;                         // addition
+        document.myform.res.value = result.toFixed(3);
+    }
+
+    function sub() {
+        a = Number(document.myform.n1.value);
+        b = Number(document.myform.n2.value);
+        result = a - b;                         // subtraction
+        document.myform.res.value = result.toFixed(3);
+    }
+
+    function multi() {
+        a = Number(document.myform.n1.value);
+        b = Number(document.myform.n2.value);
+        result = a * b;                         // multiplication
+        document.myform.res.value = result.toFixed(3);
+    }
+
+    function div() {
+        a = Number(document.myform.n1.value);
+        b = Number(document.myform.n2.value);
+        if (b === 0) {
+            document.myform.res.value = "Cannot divide by 0";
+        } else {
+            result = a / b;                     // division
+            document.myform.res.value = result.toFixed(3);
+        }
+    }
+
+    function mod() {
+        a = Number(document.myform.n1.value);
+        b = Number(document.myform.n2.value);
+        result = a % b;                         // modulus
+        document.myform.res.value = result.toFixed(3);
+    }
+</script>
+
+</body>
+</html>
